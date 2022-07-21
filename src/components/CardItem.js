@@ -10,6 +10,22 @@ import "react-circular-progressbar/dist/styles.css";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 
 export const CardItem = ({ user }) => {
+  const [targetSteps, setTargetSteps] = React.useState(0);
+  const [targetCalorie, setTargetCalorie] = React.useState(0);
+
+  React.useEffect(() => {
+    setTargetSteps(user.stepsTarget);
+    setTargetCalorie(user.stepsTarget);
+  }, [user]);
+
+  const handleIncrement = () => {
+    setTargetSteps(targetSteps + 500);
+  };
+
+  const handleDecrement = () => {
+    setTargetSteps(targetSteps > 500 ? targetSteps - 500 : 0);
+  };
+
   return (
     <div
       style={{
@@ -37,7 +53,7 @@ export const CardItem = ({ user }) => {
       </div>
       <div style={{ width: "4rem", marginLeft: "3rem" }}>
         <CircularProgressbarWithChildren
-          value={`${(user.stepsWalked / user.stepsTarget) * 100}`}
+          value={`${(user.stepsWalked / targetSteps) * 100}`}
         >
           <div
             style={{
@@ -76,6 +92,7 @@ export const CardItem = ({ user }) => {
             borderRadius: "22%",
             backgroundColor: "#101317",
           }}
+          onClick={handleIncrement}
         >
           <img src={process.env.PUBLIC_URL + "/plus.png"} />
         </div>
@@ -90,7 +107,7 @@ export const CardItem = ({ user }) => {
           }}
         >
           <span style={{ fontSize: "1.2rem", fontWeight: "800" }}>
-            {user.stepsTarget / 1000}k
+            {targetSteps / 1000}k
           </span>
           <span
             style={{
@@ -112,6 +129,7 @@ export const CardItem = ({ user }) => {
             borderRadius: "22%",
             backgroundColor: "#101317",
           }}
+          onClick={handleDecrement}
         >
           <img src={process.env.PUBLIC_URL + "/minus.png"} />
         </div>
@@ -224,7 +242,7 @@ export const CardItem = ({ user }) => {
           }}
         >
           <span style={{ fontSize: "1.2rem", fontWeight: "800" }}>
-            {user.stepsTarget / 1000}k
+            {targetCalorie / 1000}k
           </span>
           <span
             style={{
