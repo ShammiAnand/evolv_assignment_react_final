@@ -66,7 +66,19 @@ export const CardItem = ({ user }) => {
           justifyContent: "space-between",
         }}
       >
-        <PlusCircleOutlined style={{ fontSize: "1.5rem" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "2rem",
+            height: "1rem",
+            borderRadius: "22%",
+            backgroundColor: "#101317",
+          }}
+        >
+          <img src={process.env.PUBLIC_URL + "/plus.png"} />
+        </div>
         <div
           style={{
             marginTop: "0.2rem",
@@ -90,7 +102,19 @@ export const CardItem = ({ user }) => {
             target
           </span>
         </div>
-        <MinusCircleOutlined style={{ fontSize: "1.5rem" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "2rem",
+            height: "1rem",
+            borderRadius: "22%",
+            backgroundColor: "#101317",
+          }}
+        >
+          <img src={process.env.PUBLIC_URL + "/minus.png"} />
+        </div>
       </div>
 
       <div
@@ -176,7 +200,19 @@ export const CardItem = ({ user }) => {
           justifyContent: "space-between",
         }}
       >
-        <PlusCircleOutlined style={{ fontSize: "1.5rem" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "2rem",
+            height: "1rem",
+            borderRadius: "22%",
+            backgroundColor: "#101317",
+          }}
+        >
+          <img src={process.env.PUBLIC_URL + "/plus.png"} />
+        </div>
         <div
           style={{
             marginTop: "0.2rem",
@@ -200,7 +236,19 @@ export const CardItem = ({ user }) => {
             target
           </span>
         </div>
-        <MinusCircleOutlined style={{ fontSize: "1.5rem" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "2rem",
+            height: "1rem",
+            borderRadius: "22%",
+            backgroundColor: "#101317",
+          }}
+        >
+          <img src={process.env.PUBLIC_URL + "/minus.png"} />
+        </div>
       </div>
       <div
         style={{
