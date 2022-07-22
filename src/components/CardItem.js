@@ -1,5 +1,8 @@
 import * as React from "react";
 import { PieChart } from "react-minimal-pie-chart";
+import ReactTooltip from "react-tooltip";
+import ProgressBar from "@ramonak/react-progress-bar";
+
 // Import react-circular-progressbar module and styles
 import {
   CircularProgressbar,
@@ -12,6 +15,11 @@ import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 export const CardItem = ({ user }) => {
   const [targetSteps, setTargetSteps] = React.useState(0);
   const [targetCalorie, setTargetCalorie] = React.useState(0);
+  const [tooltip, showTooltip] = React.useState(true);
+
+  const close = () => {
+    ReactTooltip.hide();
+  };
 
   React.useEffect(() => {
     setTargetSteps(user.stepsTarget);
@@ -62,6 +70,7 @@ export const CardItem = ({ user }) => {
       <div style={{ width: "4rem", marginLeft: "3rem" }}>
         <CircularProgressbarWithChildren
           value={`${(user.stepsWalked / targetSteps) * 100}`}
+          animate={true}
         >
           <div
             style={{
@@ -207,7 +216,16 @@ export const CardItem = ({ user }) => {
       >
         <img src={process.env.PUBLIC_URL + "/right.png"} />
       </div>
-      <div style={{ width: "4rem", marginLeft: "3rem" }}>
+      <div
+        style={{ width: "4rem", marginLeft: "3rem" }}
+        // data-for="nutrition"
+        data-tip
+        // onMouseEnter={() => showTooltip(true)}
+        onMouseLeave={() => {
+          // showTooltip(false);
+          ReactTooltip.hide();
+        }}
+      >
         <PieChart
           data={[
             { title: "One", value: 10, color: "#F45C84" },
@@ -216,7 +234,25 @@ export const CardItem = ({ user }) => {
           ]}
           animate={true}
           lineWidth={20}
-        />
+        >
+          {/* DID NOT WORK !!! IDKW */}
+          {/* <div
+            style={{
+              color: "white",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ fontSize: "1rem", fontWeight: "800" }}>
+              {user.stepsWalked}
+            </span>
+            <span style={{ fontSize: "0.6rem", fontWeight: "300" }}>
+              walked
+            </span>
+          </div> */}
+        </PieChart>
       </div>
 
       <div
@@ -314,6 +350,102 @@ export const CardItem = ({ user }) => {
           style={{ width: "1.5rem", height: "1.5rem" }}
         />
       </div>
+      {tooltip && (
+        <ReactTooltip
+          // id="nutrition"
+          type="dark"
+          place="bottom"
+          // effect="solid"
+          backgroundColor="#333B44"
+        >
+          <div>
+            <div
+              style={{
+                width: "24rem",
+                height: "4rem",
+                borderRadius: "1rem",
+                backgroundColor: "#1B222A",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  margin: "1rem",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    margin: "0.5rem 0",
+                  }}
+                >
+                  {" "}
+                  PROTEIN{" "}
+                </span>
+                <ProgressBar completed={60} bgColor="#F45C84" />
+              </div>
+            </div>
+            <div
+              style={{
+                width: "24rem",
+                height: "4rem",
+                borderRadius: "1rem",
+                backgroundColor: "#1B222A",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  margin: "1rem",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    margin: "0.5rem 0",
+                  }}
+                >
+                  {" "}
+                  FATS{" "}
+                </span>
+                <ProgressBar completed={60} bgColor="#03C6FA" />
+              </div>
+            </div>
+            <div
+              style={{
+                width: "24rem",
+                height: "4rem",
+                borderRadius: "1rem",
+                backgroundColor: "#1B222A",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  margin: "1rem",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    margin: "0.5rem 0",
+                  }}
+                >
+                  {" "}
+                  CARBS{" "}
+                </span>
+                <ProgressBar completed={60} bgColor="#F0C50F" />
+              </div>
+            </div>
+          </div>
+        </ReactTooltip>
+      )}
     </div>
   );
 };
