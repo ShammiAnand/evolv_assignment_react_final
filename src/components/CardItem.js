@@ -22,6 +22,13 @@ export const CardItem = ({ user }) => {
     setTargetSteps(targetSteps + 500);
   };
 
+  const handleCalorieIncrement = () => {
+    setTargetCalorie(targetCalorie + 100);
+  };
+  const handleCalorieDecrement = () => {
+    setTargetCalorie(targetCalorie > 100 ? targetCalorie - 100 : 0);
+  };
+
   const handleDecrement = () => {
     setTargetSteps(targetSteps > 500 ? targetSteps - 500 : 0);
   };
@@ -229,6 +236,7 @@ export const CardItem = ({ user }) => {
             borderRadius: "22%",
             backgroundColor: "#101317",
           }}
+          onClick={handleCalorieIncrement}
         >
           <img src={process.env.PUBLIC_URL + "/plus.png"} />
         </div>
@@ -265,6 +273,7 @@ export const CardItem = ({ user }) => {
             borderRadius: "22%",
             backgroundColor: "#101317",
           }}
+          onClick={handleCalorieDecrement}
         >
           <img src={process.env.PUBLIC_URL + "/minus.png"} />
         </div>
