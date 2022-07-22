@@ -210,10 +210,12 @@ export const CardItem = ({ user }) => {
       <div style={{ width: "4rem", marginLeft: "3rem" }}>
         <PieChart
           data={[
-            { title: "One", value: 10, color: "#E38627" },
-            { title: "Two", value: 15, color: "#C13C37" },
-            { title: "Three", value: 20, color: "#6A2135" },
+            { title: "One", value: 10, color: "#F45C84" },
+            { title: "Two", value: 15, color: "#03C7FC" },
+            { title: "Three", value: 20, color: "#F5C90F" },
           ]}
+          animate={true}
+          lineWidth={20}
         />
       </div>
 
