@@ -7,7 +7,7 @@ function App() {
       style={{
         widht: "100vw",
         height: "100vh",
-        backgroundColor: "#E5E5E5",
+        backgroundColor: "#1F2731",
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
