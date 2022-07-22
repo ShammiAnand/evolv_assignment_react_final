@@ -29,6 +29,7 @@ export const CardItem = ({ user }) => {
   return (
     <div
       style={{
+        marginBottom: "2rem",
         width: "90%",
         height: "27%",
         borderRadius: "1rem",
