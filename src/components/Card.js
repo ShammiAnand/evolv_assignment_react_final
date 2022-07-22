@@ -52,14 +52,42 @@ export const Card = () => {
           justifyContent: "end",
         }}
       >
-        <div style={{ margin: "1.5rem 1.5rem 1rem 0" }}>
+        <div
+          style={{
+            margin: "1.5rem 1.5rem 1rem 0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <span style={{ color: "white", fontWeight: "800" }}>Steps</span>
           <img
             src={process.env.PUBLIC_URL + "/steps.png"}
             style={{ marginLeft: "0.5rem" }}
           />
         </div>
-        <div style={{ margin: "1.5rem 1.5rem 1rem 0" }}>
+        <div
+          style={{
+            margin: "1.5rem 1.5rem 1rem 0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <span style={{ color: "white", fontWeight: "800" }}>Workout</span>
+          <img
+            src={process.env.PUBLIC_URL + "/workout.png"}
+            style={{ marginLeft: "0.5rem" }}
+          />
+        </div>
+        <div
+          style={{
+            margin: "1.5rem 1.5rem 1rem 0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <span style={{ color: "white", fontWeight: "800" }}>Nutrition</span>
           <img
             src={process.env.PUBLIC_URL + "/nutrition.png"}
