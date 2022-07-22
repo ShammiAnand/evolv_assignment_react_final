@@ -15,7 +15,7 @@ import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 export const CardItem = ({ user }) => {
   const [targetSteps, setTargetSteps] = React.useState(0);
   const [targetCalorie, setTargetCalorie] = React.useState(0);
-  const [tooltip, showTooltip] = React.useState(true);
+  const [tooltip, showTooltip] = React.useState(false);
 
   const close = () => {
     ReactTooltip.hide();
@@ -220,9 +220,9 @@ export const CardItem = ({ user }) => {
         style={{ width: "4rem", marginLeft: "3rem" }}
         // data-for="nutrition"
         data-tip
-        // onMouseEnter={() => showTooltip(true)}
+        onMouseEnter={() => showTooltip(true)}
         onMouseLeave={() => {
-          // showTooltip(false);
+          showTooltip(false);
           ReactTooltip.hide();
         }}
       >
